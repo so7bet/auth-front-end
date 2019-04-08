@@ -4,6 +4,7 @@ import Register from '../components/Register/Register';
 import ForgetPassword from '../components/ForgetPassword/ForgetPassword';
 import ResetPassword from '../components/ResetPassword/ResetPassword';
 import AdminDashboard from '../components/Admin/AdminDashboard';
+import AuthorDashboard from '../components/Author/AuthorDashboard';
 import NoMatch from '../components/NoMatch/NoMatch';
 
 const routes = [
@@ -42,6 +43,12 @@ const routes = [
         exact: true,
         auth: true,
         component: AdminDashboard
+    },
+    {
+        path: '/author_dashboard',
+        exact: true,
+        auth: true,
+        component: AuthorDashboard
     },
     {
         path: '',

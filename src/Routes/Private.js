@@ -3,9 +3,9 @@ import { Route, Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import Base from '../Base';
 
-const PrivateRoute = ({ component: Component, isAuthenticated, isAdmin, ...rest}) => (
+const PrivateRoute = ({ component: Component, isAuthenticated, isAdmin, isAuthor, ...rest}) => (
     <Route {...rest} render={props => (
-        isAuthenticated && isAdmin ? (
+        isAuthenticated && isAdmin || isAuthor ? (
             <Base>
                 <Component {...props}/>
             </Base>
@@ -23,6 +23,7 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated : state.Auth.isAuthenticated,
         isAdmin: state.Auth.isAdmin,
+        isAuthor: state.Auth.isAuthor
     }
 };
 

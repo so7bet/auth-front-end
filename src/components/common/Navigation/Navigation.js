@@ -72,6 +72,10 @@ class Navigation extends Component {
                                 <Menu.Item as={NavLink} to="/admin_dashboard">admin_Dashboard</Menu.Item>
                                 : null
                             }
+                            {this.props.isAuthor ?
+                                <Menu.Item as={NavLink} to="/author_dashboard">author_Dashboard</Menu.Item>
+                                : null
+                            }
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated
                                     ? <Dropdown trigger={this.avatar} pointing='top right' className='user-dropdown'>
@@ -104,6 +108,7 @@ const mapStateToProps = state => {
     return {
         isAuthenticated: state.Auth.isAuthenticated,
         isAdmin: state.Auth.isAdmin,
+        isAuthor: state.Auth.isAuthor,
         userName: state.Auth.user.name,
     }
 };
